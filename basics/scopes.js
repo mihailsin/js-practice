@@ -49,22 +49,22 @@ function varHoisting() {
 
 // console.log(a); // 2
 
-// // but it won't work with let (let has a block scope)
+// but it won't work with let (let has a block scope)
 
-// if (true) {
-//     let b = 2;
-// }
-// console.log(b); // b is not defined
+if (true) {
+    let b = 2;
+}
+console.log(b); // b is not defined
 
 // --------------------------------------------------------------
-async function prs() {
-    // !!!!!!!!
-    await process.nextTick(() => {
-        console.log(3);
-    });
+// async function prs() {
+//     // !!!!!!!!
+//     await process.nextTick(() => {
+//         console.log(3);
+//     });
 
-    console.log(1);
-}
+//     console.log(1);
+// }
 
-prs();
-console.log(2);
+// prs();
+// console.log(2);

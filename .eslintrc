@@ -28,5 +28,6 @@
         "prettier/prettier": "warn",
         "no-param-reassign": ["error", { "props": false }],
         "no-plusplus": "off",
+        "no-multi-assign": "off",
     },
 }
