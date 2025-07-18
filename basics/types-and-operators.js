@@ -51,3 +51,8 @@ console.log(res, typeof res); // '12' string
  */
 console.log(3 < 2 < 1); // !!!true (because of the types coercion: (false < 1 is true))
 console.log(Number(false)); // 0 is actually less than 1
+
+console.log(0 == false); // true - type coerced;
+
+console.log(0 === false); // false - strict equality operator doesnt coerced the types
+// strict enequality/enequality acts the same way
