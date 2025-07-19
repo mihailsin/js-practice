@@ -38,6 +38,10 @@ const object = {
         }
         resetName('RESET');
     },
+
+    arrowMethod: () => {
+        console.log({ arrowThis: this }); // global object
+    },
 };
 
 console.dir({ this: object.this }, { depth: null });
@@ -49,5 +53,5 @@ objectCtx.c = 'assigned outside';
 console.log({ object });
 
 object.setName('NAME FROM OUTSIDE');
-
+object.arrowMethod();
 // console.log({ name });
