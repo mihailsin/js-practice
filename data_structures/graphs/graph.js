@@ -16,11 +16,11 @@ class Graph {
         }
 
         if (!this.#nodes[sourceNode].includes(destinationNode)) {
-            !this.#nodes[sourceNode].push(destinationNode);
+            this.#nodes[sourceNode].push(destinationNode);
         }
 
         if (!this.#nodes[destinationNode].includes(sourceNode)) {
-            !this.#nodes[destinationNode].push(sourceNode);
+            this.#nodes[destinationNode].push(sourceNode);
         }
     }
 
