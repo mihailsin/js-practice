@@ -24,6 +24,50 @@ class Graph {
         }
     }
 
+    pathBFS(sourceNode, destinationNode) {
+        const queue = [sourceNode];
+        const visited = [];
+
+        visited.push(sourceNode);
+
+        let current;
+        while (queue.length) {
+            current = queue.shift();
+
+            if (current === destinationNode) {
+                // мы "пришли" к искомому узлу. значит такой путь существует
+                return true;
+            } else {
+                this.#nodes[current].forEach((neighbor) => {
+                    if (!visited.includes(neighbor)) {
+                        visited.push(neighbor);
+                        queue.push(neighbor);
+                    }
+                });
+            }
+        }
+
+        return false;
+    }
+
+    // A,G
+    pathDFS(sourceNode, destinationNode, visited = ['A', 'B', 'E', 'D']) {
+        visited.push(sourceNode);
+
+        const neighbors = this.#nodes[sourceNode]; // [ 'E', 'A' ]
+        neighbors.forEach((node) => {
+            if (!visited.includes(node)) {
+                if (node === destinationNode) {
+                    return true;
+                } else {
+                    pathDFS(node, destinationNode, visited);
+                }
+            }
+        });
+
+        return false;
+    }
+
     get nodes() {
         return this.#nodes;
     }
@@ -53,3 +97,6 @@ graph.addEdge('D', 'A');
 graph.addEdge('F', 'G');
 graph.addEdge('G', 'C');
 console.log(graph.nodes);
+
+const path = graph.pathBFS('A', 'Z');
+console.log(path);
