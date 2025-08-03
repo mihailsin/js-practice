@@ -28,5 +28,5 @@ class Singleton {
 const instance = new Singleton('data');
 console.log(instance.data);
 
-instance.data = 'new data';
-console.log(instance.data);
+const instance2 = new Singleton('new data');
+console.log(instance2.data); // data

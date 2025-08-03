@@ -8,7 +8,8 @@ class Logger {
 
 class UserService {
     constructor() {
-        this.logger = new Logger(); // жесткая связь, плохо для тестов.
+        // UserService "определяет" или "создает" логгер, по сути, UserService теперь зависит от Logger ❌
+        this.logger = new Logger(); // жесткая связь, плохо для тестов. ❌
     }
 
     createUser(firstName, lastName) {
