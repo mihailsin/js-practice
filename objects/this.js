@@ -55,3 +55,6 @@ console.log({ object });
 object.setName('NAME FROM OUTSIDE');
 object.arrowMethod();
 // console.log({ name });
+
+exports.default = { a: 3 };
+console.log(this);
