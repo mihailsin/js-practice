@@ -5,7 +5,7 @@ const obj = {
         console.log(this); // this будет ссылкой на объект, который вызывает данный метод
     },
     arrowLogThis: () => {
-        console.log(this);
+        console.log(this); // ❗Стрелочные функции — исключение: у них this лексический, то есть определяется в момент объявления.
     },
     wrappedLogThis() {
         const logThis = () => {
@@ -26,4 +26,3 @@ obj2.logThis = obj.logThis;
 obj2.logThis(); // obj2 this в методах указывает на объект, который этот метод вызвал❕
 
 obj.wrappedLogThis();
-obj.arrowLogThis();
