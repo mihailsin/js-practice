@@ -8,6 +8,9 @@ setTimeout(() => {
     });
 });
 setTimeout(() => {
+    Promise.resolve().then(() => {
+        console.log(133);
+    });
     console.log(13);
 });
 process.nextTick(() => {
