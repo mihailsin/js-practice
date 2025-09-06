@@ -1,0 +1,12 @@
+Test123
+Some string
+More! More!
+Another string
+Am I typing?
+Yes, obviously...
+const fs = require('fs');
+const path = require('path');
+
+const writeStream = fs.createWriteStream(path.join(__dirname, 'stdin.txt'), { flags: 'a' });
+
+process.stdin.pipe(writeStream);
