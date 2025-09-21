@@ -5,9 +5,27 @@
  */
 
 /**
- * Абстракция — выделение существенных свойств и операций объекта, упрощённое представление реальности
- * (что объект делает), без всех деталей реализации. Это про интерфейс и модель предметной области.
+ * Абстракция — выделение значимых характеристик объекта и скрытие несущественных деталей.
+ * Позволяет описывать объект в рамках того, ЧТО он делает, а не КАК он это делает.
+ * (показываем только главное)❕
  */
+
+/**
+ * Инкапсуляция - это объединение данных и методов, работающих с этими данными в единое целое и ограничение доступа
+ * к внутренним деталям реализации
+ * (скрываем реализацию)❕
+ */
+
+/**
+ * Наследование - механизм обеспечивающий иерархические связи между объектами и позволяющий перенимать свойства
+ * и методы родительского класса.
+ * (переиспользуем код)❕
+ */
+
+/**
+ * Полиморфизм - способность объектов с одинаковым интерфейсом иметь разное поведение. Один и тот же метод может работать
+ * по разному в зависимости от объекта, который содержит в себе этот метод.
+ * (один интерфейс - разные реализации)❕
 
 /**
  * Person - это "класс" (на самом деле - не совсем). Класс (или функция - конструктор) - это шаблон для создания объектов,
@@ -39,12 +57,27 @@ Person.staticMethod = function () {
 };
 
 const me = new Person('Mike', 'Sinkov', 37);
-
 console.log({ me });
+
+const persons = [];
+let i = 0;
+
+while (i < 10000000) {
+    persons.push(new Person('Name', 'Surname', i));
+    i++;
+}
+
+const bytes2megaBytes = (bytes) => (bytes / 1024 / 1024).toFixed(2);
+
+const memoryUsageLog = process.memoryUsage();
+const memoryUsageInMegabytes = Object.keys(memoryUsageLog).reduce((acc, key) => ({ ...acc, [key]: bytes2megaBytes(memoryUsageLog[key]) }), {});
+
+console.log(memoryUsageInMegabytes);
+
 // { me: Person { firstName: 'Mike', lastName: 'Sinkov', age: 37 } }, здесь нет метода getFullName, зато он есть на прототипе:
 console.log({ prototype: Person.prototype });
 console.log({ myFullName: me.getFullName() }); // 'Mike Sinkov' - не найдя метод getFullName у объекта me - интерпретатор "пошел" по цепочке прототипов
-console.log({ proto: me.__proto__ }); // true
+console.log({ proto: me.__proto__ });
 console.log({ protoIsALinkToPrototype: me.__proto__ === Person.prototype }); // true
 
 console.log(Person.prototype);
