@@ -40,3 +40,4 @@ obj2.logThis = obj.logThis;
 obj2.logThis(); // obj2 this в методах указывает на объект, который этот метод вызвал❕
 
 obj.wrappedLogThis();
+obj.arrowLogThis();

@@ -48,9 +48,9 @@ function Person(firstName, lastName, age) {
 }
 
 // ✅ Добавим метод getFullName на прототип. Это пример реализации прототипного наследования.
-Person.prototype.getFullName = function getFullName() {
-    return `${this.firstName} ${this.lastName}`;
-};
+// Person.prototype.getFullName = function getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+// };
 
 Person.staticMethod = function () {
     return 'I am static and you can not call me from the instances!';
@@ -72,6 +72,15 @@ const bytes2megaBytes = (bytes) => (bytes / 1024 / 1024).toFixed(2);
 const memoryUsageLog = process.memoryUsage();
 const memoryUsageInMegabytes = Object.keys(memoryUsageLog).reduce((acc, key) => ({ ...acc, [key]: bytes2megaBytes(memoryUsageLog[key]) }), {});
 
+/**
+ {
+  rss: '1485.28', Общий объём памяти, занимаемый процессом в ОЗУ.
+  heapTotal: '1380.36', Общий объём памяти, выделенный под кучу V8. (может расти при необходимости)
+  heapUsed: '1336.25', Фактическое использование памяти внутри кучи.
+  external: '1.32',
+  arrayBuffers: '0.01'
+}
+ */
 console.log(memoryUsageInMegabytes);
 
 // { me: Person { firstName: 'Mike', lastName: 'Sinkov', age: 37 } }, здесь нет метода getFullName, зато он есть на прототипе:

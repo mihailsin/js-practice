@@ -24,6 +24,10 @@ class Publisher {
             obs.update(payload);
         });
     }
+
+    get observers() {
+        return this._observers;
+    }
 }
 
 class Observer {
@@ -48,7 +52,7 @@ const publisher = new Publisher();
 
 publisher.subscribe(obs1).subscribe(obs2);
 
-console.log(publisher._observers);
+console.log(publisher.observers);
 
 publisher.unSubscribe(obs1);
-console.log(publisher._observers);
+console.log(publisher.observers);
