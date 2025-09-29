@@ -24,6 +24,12 @@ class Graph {
         }
     }
 
+    /**
+        1) BFS — Breadth-First Search (по ширине)
+        Что делает: посещает вершины слоями: сначала все соседи стартовой вершины, затем соседи соседей и т.д.
+        Когда использовать: поиск кратчайшего пути в невзвешенном графе (минимум рёбер), поиск по уровням, проверка связности.
+     */
+
     pathBFS(sourceNode, destinationNode) {
         const queue = [sourceNode];
         const visited = [];
@@ -50,7 +56,11 @@ class Graph {
         return false;
     }
 
-    // A,G
+    /**
+    2) DFS — Depth-First Search (по глубине)
+    Что делает: идёт глубоко по ветви, затем откатывается (стек/рекурсия).
+    Когда использовать: обход всего графа, поиск компоненты, проверка на наличие цикла, топологическая сортировка (на DAG), задачи backtracking.
+     */
     pathDFS(sourceNode, destinationNode, visited = ['A', 'B', 'E', 'D']) {
         visited.push(sourceNode);
 
